@@ -16,13 +16,11 @@ namespace Api_Demo.Controllers
     {
         private CrudEntities db = new CrudEntities();
 
-        // GET: api/Employees
         public IQueryable<Employee> GetEmployees()
         {
             return db.Employees;
         }
 
-        // GET: api/Employees/5
         [ResponseType(typeof(Employee))]
         public IHttpActionResult GetEmployee(int id)
         {
@@ -35,7 +33,6 @@ namespace Api_Demo.Controllers
             return Ok(employee);
         }
 
-        // PUT: api/Employees/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutEmployee(int id, Employee employee)
         {
@@ -70,7 +67,6 @@ namespace Api_Demo.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Employees
         [ResponseType(typeof(Employee))]
         public IHttpActionResult PostEmployee(Employee employee)
         {
@@ -85,7 +81,6 @@ namespace Api_Demo.Controllers
             return CreatedAtRoute("DefaultApi", new { id = employee.id }, employee);
         }
 
-        // DELETE: api/Employees/5
         [ResponseType(typeof(Employee))]
         public IHttpActionResult DeleteEmployee(int id)
         {
